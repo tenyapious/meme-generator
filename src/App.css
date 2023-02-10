@@ -54,3 +54,7 @@ nav {
 	color: #fff;
 	height: 40px;
 }
+
+.meme img {
+	width: 100%;
+}
