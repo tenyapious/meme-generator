@@ -1,13 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import getNewMeme from "../img/get-new-meme.png";
-import memeData from "../memeData";
-
-// fetch("https://api.imgflip.com/get_memes")
-// 	.then((response) => response.json())
-// 	.then((response) => {
-// 		console.log(response);
-// 	})
-// 	.catch((err) => console.log(err));
 
 function InputForm() {
 	const [meme, setMeme] = useState({
@@ -16,10 +8,23 @@ function InputForm() {
 		randomImage: "https://i.imgflip.com/30b1gx.jpg",
 	});
 
+	const [allMemes, setAllMemes] = useState([]);
+
+	useEffect(() => {
+		fetch("https://api.imgflip.com/get_memes")
+			.then((response) => response.json())
+			.then((response) => {
+				setAllMemes(response.data.memes);
+			})
+			.catch((err) => console.log(err));
+	}, []);
+
+	console.log(allMemes);
+
 	function handleClick() {
 		setMeme((prevMeme) => ({
 			...prevMeme,
-			randomImage: memeData[Math.floor(Math.random() * 100) + 1].url,
+			randomImage: allMemes[Math.floor(Math.random() * allMemes.length)].url,
 		}));
 	}
 
