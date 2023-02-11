@@ -15,14 +15,6 @@ body {
 	text-shadow: 2px black;
 }
 
-.top {
-	top: 25%;
-}
-
-.bottom {
-	bottom: 25%;
-}
-
 .meme {
 	margin: auto;
 	width: 450px;
@@ -54,4 +46,11 @@ h2 {
 
 .top {
 	top: 0;
+}
+
+.position-container {
+	display: flex;
+	gap: 1rem;
+	align-items: center;
+	padding-top: 5px;
 }

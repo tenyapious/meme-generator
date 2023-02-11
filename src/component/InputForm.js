@@ -37,24 +37,65 @@ function InputForm() {
 		}));
 	}
 
+	function handlePositionChange() {
+		console.log("change");
+	}
+
 	return (
 		<>
 			<div className="form">
-				<input
-					type="text"
-					placeholder="top text"
-					className="top-text"
-					name="topText"
-					onChange={handleChange}
-				/>
+				<div className="top-text-container">
+					<input
+						type="text"
+						placeholder="top text"
+						className="top-text"
+						name="topText"
+						onChange={handleChange}
+					/>
+					<div className="position-container">
+						<label>H</label>
+						<input
+							type="number"
+							className="top-text-position-top"
+							name="topTextPositionTop"
+							onChange={handlePositionChange}
+						/>
+						<label>V</label>
+						<input
+							type="number"
+							className="top-text-position-top"
+							name="topTextPositionTop"
+							onChange={handlePositionChange}
+						/>
+					</div>
+				</div>
 
-				<input
-					type="text"
-					placeholder="bottom text"
-					className="bottom-text"
-					name="bottomText"
-					onChange={handleChange}
-				/>
+				<div className="top-text-container">
+					<input
+						type="text"
+						placeholder="top text"
+						className="top-text"
+						name="topText"
+						onChange={handleChange}
+					/>
+					<div className="position-container">
+						<label>H</label>
+						<input
+							type="number"
+							className="top-text-position-top"
+							name="topTextPositionTop"
+							onChange={handlePositionChange}
+						/>
+						<label>V</label>
+						<input
+							type="text"
+							placeholder="bottom text"
+							className="bottom-text"
+							name="bottomText"
+							onChange={handleChange}
+						/>
+					</div>
+				</div>
 
 				<button className="form-btn" onClick={handleClick}>
 					<img src={getNewMeme} />
