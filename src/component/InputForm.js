@@ -42,9 +42,6 @@ function InputForm() {
 		}));
 	}
 
-	console.log(meme);
-	console.log(memePosition);
-
 	function handleMemePosition(event) {
 		const { name, value } = event.target;
 
@@ -63,20 +60,20 @@ function InputForm() {
 						onChange={handleChange}
 					/>
 					<div className="position-container">
-						<label>H</label>
+						<label htmlFor="text-1-h">H</label>
 						<input
 							type="number"
 							value={memePosition.text1h}
-							className="text-1-h"
+							id="text-1-h"
 							name="text1h"
 							step="10"
 							onChange={handleMemePosition}
 						/>
-						<label>V</label>
+						<label htmlFor="text-1-v">V</label>
 						<input
 							type="number"
 							value={memePosition.text1v}
-							className="text-1-v"
+							id="text-1-v"
 							name="text1v"
 							step="10"
 							onChange={handleMemePosition}
@@ -93,20 +90,20 @@ function InputForm() {
 						onChange={handleChange}
 					/>
 					<div className="position-container">
-						<label>H</label>
+						<label htmlFor="text-2-h">H</label>
 						<input
 							type="number"
 							value={memePosition.text2h}
-							className="text-2-h"
+							id="text-2-h"
 							name="text2h"
 							step="10"
 							onChange={handleMemePosition}
 						/>
-						<label>V</label>
+						<label htmlFor="text-2-v">V</label>
 						<input
 							type="number"
 							value={memePosition.text2v}
-							className="text-2-v"
+							id="text-2-v"
 							name="text2v"
 							step="10"
 							onChange={handleMemePosition}
