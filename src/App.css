@@ -1,5 +1,5 @@
 .container {
-	width: 550px;
+	max-width: 550px;
 	background: #fff;
 	margin: auto;
 }
@@ -34,7 +34,6 @@ nav {
 	color: #0d0d0d;
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
-	grid-template-rows: auto auto;
 	gap: 1rem;
 	padding: 2rem;
 }
@@ -48,7 +47,6 @@ nav {
 
 .form-btn {
 	grid-column: 1/3;
-	grid-row: 2/3;
 	background: linear-gradient(90.41deg, #711f8d 1.14%, #a818da 100%);
 	border-radius: 5px;
 	color: #fff;
@@ -57,4 +55,11 @@ nav {
 
 .meme img {
 	width: 100%;
+}
+
+@media screen and (max-width: 470px) {
+	.form {
+		display: flex;
+		flex-direction: column;
+	}
 }

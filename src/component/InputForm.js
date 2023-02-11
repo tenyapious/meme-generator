@@ -84,6 +84,7 @@ function InputForm() {
 							id="text-1-h"
 							name="text1h"
 							step="10"
+							pattern="[0-9]*"
 							onChange={handleMemePosition}
 						/>
 						<label htmlFor="text-1-v">V</label>
@@ -93,12 +94,13 @@ function InputForm() {
 							id="text-1-v"
 							name="text1v"
 							step="10"
+							pattern="[0-9]*"
 							onChange={handleMemePosition}
 						/>
 					</div>
 					<div className="position-container">
 						<label htmlFor="text-1-fontSize" className="fontSize">
-							Font Size
+							Font Size(px)
 						</label>
 						<input
 							type="number"
@@ -106,29 +108,8 @@ function InputForm() {
 							id="text-1-fontSize"
 							name="text1FontSize"
 							step="5"
+							pattern="[0-9]*"
 							onChange={handleFontSize}
-						/>
-						px
-					</div>
-					<div className="position-container">
-						<label htmlFor="arial">Arial</label>
-						<input
-							type="radio"
-							id="arial"
-							name="fontFamily"
-							value="arial"
-							checked={memeFontFamily == "arial"}
-							onChange={handleFontFamily}
-						/>
-
-						<label htmlFor="impact">Impact</label>
-						<input
-							type="radio"
-							id="impact"
-							name="fontFamily"
-							value="impact"
-							checked={memeFontFamily == "impact"}
-							onChange={handleFontFamily}
 						/>
 					</div>
 				</div>
@@ -149,6 +130,7 @@ function InputForm() {
 							id="text-2-h"
 							name="text2h"
 							step="10"
+							pattern="[0-9]*"
 							onChange={handleMemePosition}
 						/>
 						<label htmlFor="text-2-v">V</label>
@@ -158,12 +140,13 @@ function InputForm() {
 							id="text-2-v"
 							name="text2v"
 							step="10"
+							pattern="[0-9]*"
 							onChange={handleMemePosition}
 						/>
 					</div>
 					<div className="position-container">
 						<label htmlFor="text-2-fontSize" className="fontSize">
-							Font Size
+							Font Size(px)
 						</label>
 						<input
 							type="number"
@@ -171,11 +154,34 @@ function InputForm() {
 							id="text-2-fontSize"
 							name="text2FontSize"
 							step="5"
+							pattern="[0-9]*"
 							onChange={handleFontSize}
 						/>
-						px
 					</div>
 				</div>
+
+				<fieldset className="font-family">
+					<legend>Font-family</legend>
+					<label htmlFor="arial">Arial</label>
+					<input
+						type="radio"
+						id="arial"
+						name="fontFamily"
+						value="arial"
+						checked={memeFontFamily == "arial"}
+						onChange={handleFontFamily}
+					/>
+
+					<label htmlFor="impact">Impact</label>
+					<input
+						type="radio"
+						id="impact"
+						name="fontFamily"
+						value="impact"
+						checked={memeFontFamily == "impact"}
+						onChange={handleFontFamily}
+					/>
+				</fieldset>
 
 				<button className="form-btn" onClick={handleClick}>
 					<img src={getNewMeme} />
