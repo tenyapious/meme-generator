@@ -22,6 +22,8 @@ function InputForm() {
 		text2FontSize: 40,
 	});
 
+	const [memeFontFamily, setMemeFontFamily] = useState("impact");
+
 	useEffect(() => {
 		fetch("https://api.imgflip.com/get_memes")
 			.then((response) => response.json())
@@ -52,12 +54,15 @@ function InputForm() {
 
 		setMemePosition((prevPosition) => ({ ...prevPosition, [name]: value }));
 	}
-	console.log(fontSize);
 
 	function handleFontSize(event) {
 		const { name, value } = event.target;
 
 		setFontSize((prevFontSize) => ({ ...prevFontSize, [name]: value }));
+	}
+
+	function handleFontFamily(event) {
+		setMemeFontFamily(event.target.value);
 	}
 
 	return (
@@ -92,7 +97,9 @@ function InputForm() {
 						/>
 					</div>
 					<div className="position-container">
-						<label htmlFor="text-1-fontSize">Font Size</label>
+						<label htmlFor="text-1-fontSize" className="fontSize">
+							Font Size
+						</label>
 						<input
 							type="number"
 							value={fontSize.text1FontSize}
@@ -100,6 +107,28 @@ function InputForm() {
 							name="text1FontSize"
 							step="5"
 							onChange={handleFontSize}
+						/>
+						px
+					</div>
+					<div className="position-container">
+						<label htmlFor="arial">Arial</label>
+						<input
+							type="radio"
+							id="arial"
+							name="fontFamily"
+							value="arial"
+							checked={memeFontFamily == "arial"}
+							onChange={handleFontFamily}
+						/>
+
+						<label htmlFor="impact">Impact</label>
+						<input
+							type="radio"
+							id="impact"
+							name="fontFamily"
+							value="impact"
+							checked={memeFontFamily == "impact"}
+							onChange={handleFontFamily}
 						/>
 					</div>
 				</div>
@@ -133,7 +162,9 @@ function InputForm() {
 						/>
 					</div>
 					<div className="position-container">
-						<label htmlFor="text-2-fontSize">Font Size</label>
+						<label htmlFor="text-2-fontSize" className="fontSize">
+							Font Size
+						</label>
 						<input
 							type="number"
 							value={fontSize.text2FontSize}
@@ -142,6 +173,7 @@ function InputForm() {
 							step="5"
 							onChange={handleFontSize}
 						/>
+						px
 					</div>
 				</div>
 
@@ -149,7 +181,7 @@ function InputForm() {
 					<img src={getNewMeme} />
 				</button>
 			</div>
-			<div className="meme">
+			<div className="meme" style={{ fontFamily: memeFontFamily }}>
 				<img src={meme.randomImage} alt="" />
 				<h2
 					className="meme--text text-1"
