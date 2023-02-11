@@ -17,6 +17,11 @@ function InputForm() {
 		text2v: 0,
 	});
 
+	const [fontSize, setFontSize] = useState({
+		text1FontSize: 40,
+		text2FontSize: 40,
+	});
+
 	useEffect(() => {
 		fetch("https://api.imgflip.com/get_memes")
 			.then((response) => response.json())
@@ -46,6 +51,13 @@ function InputForm() {
 		const { name, value } = event.target;
 
 		setMemePosition((prevPosition) => ({ ...prevPosition, [name]: value }));
+	}
+	console.log(fontSize);
+
+	function handleFontSize(event) {
+		const { name, value } = event.target;
+
+		setFontSize((prevFontSize) => ({ ...prevFontSize, [name]: value }));
 	}
 
 	return (
@@ -79,6 +91,17 @@ function InputForm() {
 							onChange={handleMemePosition}
 						/>
 					</div>
+					<div className="position-container">
+						<label htmlFor="text-1-fontSize">Font Size</label>
+						<input
+							type="number"
+							value={fontSize.text1FontSize}
+							id="text-1-fontSize"
+							name="text1FontSize"
+							step="5"
+							onChange={handleFontSize}
+						/>
+					</div>
 				</div>
 
 				<div className="top-text-container">
@@ -109,6 +132,17 @@ function InputForm() {
 							onChange={handleMemePosition}
 						/>
 					</div>
+					<div className="position-container">
+						<label htmlFor="text-2-fontSize">Font Size</label>
+						<input
+							type="number"
+							value={fontSize.text2FontSize}
+							id="text-2-fontSize"
+							name="text2FontSize"
+							step="5"
+							onChange={handleFontSize}
+						/>
+					</div>
 				</div>
 
 				<button className="form-btn" onClick={handleClick}>
@@ -122,6 +156,7 @@ function InputForm() {
 					style={{
 						left: `${memePosition.text1h}px`,
 						top: `${memePosition.text1v}px`,
+						fontSize: `${fontSize.text1FontSize}px`,
 					}}
 				>
 					{meme.text1}
@@ -131,6 +166,7 @@ function InputForm() {
 					style={{
 						left: `${memePosition.text2h}px`,
 						bottom: `${memePosition.text2v}px`,
+						fontSize: `${fontSize.text2FontSize}px`,
 					}}
 				>
 					{meme.text2}
