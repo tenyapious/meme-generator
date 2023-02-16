@@ -8,7 +8,7 @@ function Nav() {
 				<img src={logo} className="logo-img" />
 				Meme Generator
 			</h1>
-			<p className="nav-project">React Course - Project 3</p>
+			<p className="nav-project">Project 3</p>
 		</nav>
 	);
 }
